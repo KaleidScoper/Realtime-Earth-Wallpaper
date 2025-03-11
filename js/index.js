@@ -92,17 +92,73 @@ function setSize() {
  * 预加载图片
  */
 function loadImage(time) {
-	for (let i = 0; i < 16; i++) {
-		imgs[i].onload = () => {
-			loaded[i] = true;
-			console.log("part " + i + " loaded.");
-		};
-		imgs[i].onerror = () => {
-			loaded[i] = false;
-			console.log("part " + i + " can not load.");
-		}
-		imgs[i].src = url + imgPath + time + position[i];
-	}
+    for (let i = 0; i < 16; i++) {
+        imgs[i].onload = () => {
+            loaded[i] = true;
+            console.log("part " + i + " loaded.");
+            // 修正图像
+            imgs[i] = correctImage(imgs[i]);
+        };
+        imgs[i].onerror = () => {
+            loaded[i] = false;
+            console.log("part " + i + " can not load.");
+        }
+        imgs[i].src = url + imgPath + time + position[i];
+    }
+}
+
+/**
+ * 修正图像
+ */
+function correctImage(img) {
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imageData.data;
+
+    // 色阶提高到 1.30
+    for (let i = 0; i < data.length; i += 4) {
+        data[i] = Math.min(255, data[i] * 1.3);     // Red
+        data[i + 1] = Math.min(255, data[i + 1] * 1.3); // Green
+        data[i + 2] = Math.min(255, data[i + 2] * 1.3); // Blue
+    }
+
+    // 增加 15% 的饱和度
+    for (let i = 0; i < data.length; i += 4) {
+        let r = data[i];
+        let g = data[i + 1];
+        let b = data[i + 2];
+        let avg = (r + g + b) / 3;
+        data[i] = r + (r - avg) * 0.15;
+        data[i + 1] = g + (g - avg) * 0.15;
+        data[i + 2] = b + (b - avg) * 0.15;
+    }
+
+    // 调整通道颜色
+    for (let i = 0; i < data.length; i += 4) {
+        let r = data[i];
+        let g = data[i + 1];
+        let b = data[i + 2];
+        data[i] = r + 0.25 * g; // Red channel
+        data[i + 1] = g + 0.5 * r; // Green channel
+        data[i + 2] = b + 0.25 * r; // Blue channel
+    }
+
+    // 色阶提高到 1.40
+    for (let i = 0; i < data.length; i += 4) {
+        data[i] = Math.min(255, data[i] * 1.4);     // Red
+        data[i + 1] = Math.min(255, data[i + 1] * 1.4); // Green
+        data[i + 2] = Math.min(255, data[i + 2] * 1.4); // Blue
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+    let correctedImg = new Image();
+    correctedImg.src = canvas.toDataURL();
+    return correctedImg;
 }
 
 /**
