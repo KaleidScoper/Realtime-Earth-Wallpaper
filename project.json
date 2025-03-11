@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "实时地球桌面\r\n\r\n图像来源：向日葵8号官方API\r\n地球分辨率：2200 * 2200，支持缩放、拖动（鼠标移到右上角）\r\n更新间隔：每到10分钟的整数倍时更新\r\n已知问题：晨昏线到边缘时，图像顶部的镜头炫光有缺失（官方图片就是这样）\r\n\r\n友情提示：国内的小伙伴可能需要梯子\r\n\r\nQ&A：\r\n\r\n晚上会全黑吗？\r\n除了春分秋分时期，其它时间段存在极昼，因此不会全黑。\r\n\r\n为什么位置是固定的？\r\n向日葵8号是同步卫星，相对于地球静止。",
+	"description" : "使用实时地球卫星影像的壁纸，基于steam用户打野的英雄小娜迦（https://steamcommunity.com/id/cloudfloating）的、未经颜色修正的版本，进行修改而成。\n\n图像来源：日本气象厅向日葵8号卫星官方API\n地球分辨率：2200 * 2200，支持缩放、拖动（鼠标移到右上角）\n更新间隔：每个整十分钟时更新，一旦更新失败将显示未经颜色修正的默认图像以供提示。国内用户可能需要梯子。\n\n已知问题：有时能拍到月球，但是因为卫星本身的缘故，月球图像可能拼接不正确或者变形。\n\n颜色修正算法：向日葵8号的图像是明显偏红的。此壁纸则仿照Jinbridger博客（https://jinbridge.dev/docs/other/earth-wallpaper/）中给出的颜色修正方案，对卫星图像进行了调色，使之更接近现实中地球的颜色。\n\nQ&A：\n\n晚上会全黑吗？\n除了春分秋分时期，其它时间段存在极昼，因此不会全黑。\n\n为什么位置是固定的？\n向日葵8号是同步卫星，相对于地球静止。",
 	"file" : "index.html",
 	"general" : 
 	{
@@ -16,11 +16,10 @@
 		}
 	},
 	"preview" : "preview.jpg",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
 	"tags" : [ "Technology" ],
 	"title" : "Real Time Earth From Himawari-8 (Color Corrected)",
 	"type" : "web",
-	"version" : 1,
-	"visibility" : "public",
-	"workshopid" : "2197873216",
-	"workshopurl" : "steam://url/CommunityFilePage/2197873216"
+	"version" : 0
 }
