@@ -143,9 +143,9 @@ function correctImage(img) {
         let r = data[i];
         let g = data[i + 1];
         let b = data[i + 2];
-        data[i] = r + 0.25 * g; // Red channel
-        data[i + 1] = g + 0.5 * r; // Green channel
-        data[i + 2] = b + 0.25 * r; // Blue channel
+        data[i] = r * 0.8 + g * 0.2; // Red channel
+        data[i + 1] = g * 0.66 + r * 0.33; // Green channel
+        data[i + 2] = b * 0.8 + r * 0.2; // Blue channel
     }
 
     // 色阶提高到 1.40
