@@ -1,0 +1,200 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background-color: black;
+	height: 100%;
+	font-family: Source Han Sans CN;
+	z-index: -100;
+}
+
+img[src=""],
+img:not([src]) {
+	opacity: 0;
+}
+
+#border {
+	position: absolute;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-image: none;
+	background-size: cover;
+	z-index: 1;
+	pointer-events: none;
+}
+
+#controll {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 10px;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	border-radius: 10px;
+	background-color: #111111;
+	transition: all 300ms;
+}
+
+#controll:hover {
+	opacity: 1 !important;
+	transition: all 300ms;
+}
+
+.controll-button {
+	padding: 10px;
+	width: 25px;
+	height: 25px;
+	border-radius: 10px;
+	color: white;
+	background-color: #333333;
+	cursor: pointer;
+}
+
+#reload {
+	background-image: url(../resources/reload_button.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+}
+
+#toggle-border {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	background-image: url(../resources/border_button.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+}
+
+#zoom-up,
+#zoom-down {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+#draggable {
+	margin-top: 10px;
+	background-image: url(../resources/drag.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+}
+
+.content {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.earth {
+	height: 1650px;
+	width: 1650px;
+	position: relative;
+}
+
+.earth-part {
+	position: absolute;
+	height: 550px;
+	width: 550px;
+	transition: width 1s, height 1s, left 1s, top 1s;
+	transition-delay: 300ms;
+}
+
+.earth-image {
+	height: inherit;
+	width: inherit;
+}
+
+/* row 1 */
+.earth-00 {
+	top: 0;
+	left: 0;
+}
+
+.earth-10 {
+	top: 0;
+	left: 550px;
+}
+
+.earth-20 {
+	top: 0;
+	left: 1100px;
+}
+
+.earth-30 {
+	top: 0;
+	left: 1650px;
+}
+
+/* row 2 */
+.earth-01 {
+	top: 550px;
+	left: 0;
+}
+
+.earth-11 {
+	top: 550px;
+	left: 550px;
+}
+
+.earth-21 {
+	top: 550px;
+	left: 1100px;
+}
+
+.earth-31 {
+	top: 550px;
+	left: 1650px;
+}
+
+/* row 3 */
+.earth-02 {
+	top: 1100px;
+	left: 0;
+}
+
+.earth-12 {
+	top: 1100px;
+	left: 550px;
+}
+
+.earth-22 {
+	top: 1100px;
+	left: 1100px;
+}
+
+.earth-32 {
+	top: 1100px;
+	left: 1650px;
+}
+
+.earth-03 {
+	top: 1650px;
+	left: 0;
+}
+
+.earth-13 {
+	top: 1650px;
+	left: 550px;
+}
+
+.earth-23 {
+	top: 1650px;
+	left: 1100px;
+}
+
+.earth-33 {
+	top: 1650px;
+	left: 1650px;
+}

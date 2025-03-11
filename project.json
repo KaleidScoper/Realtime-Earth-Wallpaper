@@ -1,0 +1,26 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "实时地球桌面\r\n\r\n图像来源：向日葵8号官方API\r\n地球分辨率：2200 * 2200，支持缩放、拖动（鼠标移到右上角）\r\n更新间隔：每到10分钟的整数倍时更新\r\n已知问题：晨昏线到边缘时，图像顶部的镜头炫光有缺失（官方图片就是这样）\r\n\r\n友情提示：国内的小伙伴可能需要梯子\r\n\r\nQ&A：\r\n\r\n晚上会全黑吗？\r\n除了春分秋分时期，其它时间段存在极昼，因此不会全黑。\r\n\r\n为什么位置是固定的？\r\n向日葵8号是同步卫星，相对于地球静止。",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Technology" ],
+	"title" : "Real Time Earth From Himawari-8",
+	"type" : "web",
+	"version" : 1,
+	"visibility" : "public",
+	"workshopid" : "2197873216",
+	"workshopurl" : "steam://url/CommunityFilePage/2197873216"
+}
