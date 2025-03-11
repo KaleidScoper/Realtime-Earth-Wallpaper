@@ -237,16 +237,12 @@ function getServerTime(callback) {
 }
 
 /**
- * 加载失败时显示默认图片
+ * 加载失败时显示未修正的默认图片
  */
 function setDefaultImage() {
-    for (let i = 0; i < default_imgs.length; i++) {
-        let img = new Image();
-        img.onload = () => {
-            $(earthImgs[i]).attr("src", correctImage(img).src);
-        };
-        img.src = default_imgs[i];
-    }
+	for (let i = 0; i < default_imgs.length; i++) {
+		$(earthImgs[i]).attr("src", default_imgs[i]);
+	}
 }
 
 /**
