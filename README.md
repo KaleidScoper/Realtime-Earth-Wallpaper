@@ -3,5 +3,5 @@
 
 # 鸣谢
  1. [Steam用户cloudfloating](https://steamcommunity.com/id/cloudfloating/)。
- 2. [LoneSky的博客](https://loneskyimages.blogspot.com/2017/05/himawari-8-color-correction.html)提供的颜色矫正算法。
+ 2. [Jinbridger的博客](https://jinbridge.dev/docs/other/earth-wallpaper/)提供的颜色矫正算法。
  3. [日本气象厅](https://himawari8.nict.go.jp/zh/himawari8-image.htm)向日葵八号。
