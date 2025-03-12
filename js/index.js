@@ -121,10 +121,24 @@ function correctImage(img) {
     let data = imageData.data;
 
     // 色阶提高到 1.30
+    const inBlack = [0, 0, 0];
+    const inWhite = [255, 255, 255];
+    const inGamma = [1.3, 1.3, 1.3]; // Using 1.3 as thresholds for RGB
+    const outBlack = [0, 0, 0];
+    const outWhite = [255, 255, 255];
+
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = Math.min(255, data[i] * 1.3);     // Red
-        data[i + 1] = Math.min(255, data[i + 1] * 1.3); // Green
-        data[i + 2] = Math.min(255, data[i + 2] * 1.3); // Blue
+        // Process RGB channels (skip alpha)
+        for (let c = 0; c < 3; c++) {
+            // Normalize to 0-1 range
+            let normalized = (data[i + c] - inBlack[c]) / (inWhite[c] - inBlack[c]);
+            // Clamp to valid range
+            normalized = Math.max(0, Math.min(1, normalized));
+            // Apply gamma correction
+            let gammaCorrect = Math.pow(normalized, 1 / inGamma[c]);
+            // Scale to output range
+            data[i + c] = Math.round(gammaCorrect * (outWhite[c] - outBlack[c]) + outBlack[c]);
+        }
     }
 
     // 增加 15% 的饱和度
@@ -149,10 +163,20 @@ function correctImage(img) {
     }
 
     // 色阶提高到 1.40
+    const inGamma2 = [1.4, 1.4, 1.4]; // Using 1.4 as thresholds for RGB
+
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = Math.min(255, data[i] * 1.4);     // Red
-        data[i + 1] = Math.min(255, data[i + 1] * 1.4); // Green
-        data[i + 2] = Math.min(255, data[i + 2] * 1.4); // Blue
+        // Process RGB channels (skip alpha)
+        for (let c = 0; c < 3; c++) {
+            // Normalize to 0-1 range
+            let normalized = (data[i + c] - inBlack[c]) / (inWhite[c] - inBlack[c]);
+            // Clamp to valid range
+            normalized = Math.max(0, Math.min(1, normalized));
+            // Apply gamma correction
+            let gammaCorrect = Math.pow(normalized, 1 / inGamma2[c]);
+            // Scale to output range
+            data[i + c] = Math.round(gammaCorrect * (outWhite[c] - outBlack[c]) + outBlack[c]);
+        }
     }
 
     ctx.putImageData(imageData, 0, 0);
